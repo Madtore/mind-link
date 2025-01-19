@@ -19,11 +19,18 @@
 
 .logo-container {
   padding: 0.5rem 0;
+  img {
+    filter: hue-rotate(180deg);
+  }
 }
+
+
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  width: 64px;
+  height: 64px;
   color: #333;
   text-decoration: none;
   transition: color 0.3s ease;
