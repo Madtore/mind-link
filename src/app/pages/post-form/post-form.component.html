@@ -1,0 +1,23 @@
+<form class="post-form">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Title</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your title here" #title/>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlSelect1" class="form-label">Category</label>
+    <select class="form-control" id="exampleFormControlSelect1" #category>
+      <option>Depresión y Ansiedad</option>
+      <option>Ansiedad Social</option>
+      <option>Presión Social</option>
+      <option>Estrés</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Post Content</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Write your post content here..." #contenido></textarea>
+  </div>
+  <div class="form-buttons">
+    <button type="button" class="btn btn-primary m-1" (click)="postSubmit(title.value,contenido.value, category.value)">Post</button>
+    <button type="button" class="btn btn-danger m-1" (click)="disapearCreatePost()">Cancel</button>
+  </div>
+</form>
