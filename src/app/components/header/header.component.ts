@@ -17,6 +17,6 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent  {
   logo = 'mindlink.png';
-  logoWidth = 64;
-  logoHeight = 64;
+  logoWidth = 42;
+  logoHeight = 42;
 }

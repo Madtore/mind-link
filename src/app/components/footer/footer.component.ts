@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-  export class FooterComponent implements OnInit {
-  ngOnInit() {
-    // Logica per il rendering del componente
+  export class FooterComponent  {
+    logo = 'mindlink.png';
+    logoWidth = 64;
+    logoHeight = 64;
   }
-}
+
