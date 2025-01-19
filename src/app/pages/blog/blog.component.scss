@@ -1,0 +1,44 @@
+.blog-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.blog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-post-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.posts-container {
+  margin-top: 20px;
+}
+
+/* Add styles to ensure the form is at the top with blur */
+.app-post-form-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); /* semi-transparent background */
+  backdrop-filter: blur(8px); /* Apply blur effect */
+  z-index: 10; /* Ensure it appears on top */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Optionally, style the form itself to make it look better */
+app-post-form {
+  z-index: 20; /* Ensure the form content is above the background blur */
+  background: white; /* White background for the form */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

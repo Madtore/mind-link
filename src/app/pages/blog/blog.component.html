@@ -1,1 +1,14 @@
-<p>blog works!</p>
+<section class="blog-container">
+
+    <div class="blog-header">
+      <h1>My Blog</h1>
+      <button class="add-post-btn" (click)="showForm()" >+ Add Post</button>
+    </div>
+  
+    <div *ngIf="show" class="app-post-form-container">
+      <app-post-form (unshow)="unshowForm()"></app-post-form>
+    </div>
+    <div class="posts-container">
+      
+    </div>
+  </section>

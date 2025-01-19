@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PostFormComponent } from "../post-form/post-form.component";
 
 @Component({
   selector: 'app-home',
