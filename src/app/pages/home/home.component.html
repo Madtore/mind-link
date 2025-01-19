@@ -1,0 +1,46 @@
+<section class="home-container">
+    <!-- Slider Section -->
+    <div class="slider-container">
+      <div class="slider">
+        @for (photo of photos; track photo.id; let i = $index) {
+          <img 
+            [src]="photo.url" 
+            [alt]="photo.alt"
+            [class.active]="currentPhotoIndex === i"
+            class="slider-photo"
+          >
+        }
+      </div>
+      <div class="slider-controls">
+        <button class="slider-arrow left" (click)="prevPhoto()">←</button>
+        <button class="slider-arrow right" (click)="nextPhoto()">→</button>
+      </div>
+      <div class="slider-dots">
+        @for (photo of photos; track photo.id; let i = $index) {
+          <button 
+            class="dot" 
+            [class.active]="currentPhotoIndex === i"
+            (click)="setPhoto(i)">
+          </button>
+        }
+      </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="info-section">
+      <div class="info-content">
+        <p>información variada sobre la página</p>
+      </div>
+      <button class="more-info-btn">+ información</button>
+    </div>
+
+    <!-- Social Footer -->
+    <div class="social-footer">
+      <p>información variada + iconos de redes sociales</p>
+    </div>
+
+    <!-- Chat Bot -->
+    <button class="chat-bot-button">
+      chat bot
+    </button>
+  </section>

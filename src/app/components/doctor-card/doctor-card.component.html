@@ -1,0 +1,9 @@
+<div *ngIf="doctor" class="doctor-card">
+   
+    <div class="doctor-info">
+      <h3>{{doctor.name}}</h3>
+      <p>{{doctor.specialty}}</p>
+      <p>Precio: ${{doctor.price}}</p>
+      <button (click)="call()">Llamar</button>
+    </div>
+  </div>

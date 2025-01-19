@@ -1,0 +1,119 @@
+<div class="register-container">
+    <div class="register-card">
+      <div class="register-header">
+        <h2>Crear cuenta</h2>
+        <p class="subtitle">Completa tus datos para registrarte</p>
+      </div>
+
+      <form class="register-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input 
+              type="text" 
+              id="nombre" 
+              class="form-control"
+              placeholder="Tu nombre">
+          </div>
+
+          <div class="form-group">
+            <label for="apellidos">Apellidos</label>
+            <input 
+              type="text" 
+              id="apellidos" 
+              class="form-control"
+              placeholder="Tus apellidos">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fechaNacimiento">Fecha de nacimiento</label>
+          <input 
+            type="date" 
+            id="fechaNacimiento" 
+            class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="pais">País</label>
+          <select id="pais" class="form-control">
+            <option value="">Selecciona un país</option>
+            <option value="ES">España</option>
+            <option value="MX">México</option>
+            <option value="AR">Argentina</option>
+            <option value="CO">Colombia</option>
+            <option value="PE">Perú</option>
+            <!-- Añadir más países según necesidad -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input 
+            type="tel" 
+            id="telefono" 
+            class="form-control"
+            placeholder="Tu número de teléfono">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input 
+            type="email" 
+            id="email" 
+            class="form-control"
+            placeholder="nombre@ejemplo.com">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input 
+            type="password" 
+            id="password" 
+            class="form-control"
+            placeholder="Crea tu contraseña">
+        </div>
+
+        <div class="user-type">
+          <p class="user-type-label">¿Eres médico o paciente?</p>
+          <div class="type-options">
+            <div class="type-option">
+              <input 
+                type="radio" 
+                id="paciente" 
+                name="userType" 
+                value="paciente">
+              <label for="paciente">Paciente</label>
+            </div>
+            <div class="type-option">
+              <input 
+                type="radio" 
+                id="medico" 
+                name="userType" 
+                value="medico">
+              <label for="medico">Médico</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="terms">
+          <div class="checkbox-group">
+            <input type="checkbox" id="terms">
+            <label for="terms">
+              Acepto los <a href="/terms" class="link">términos y condiciones</a>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="register-button">
+          Crear cuenta
+        </button>
+      </form>
+
+      <div class="login-link">
+        <p>¿Ya tienes una cuenta?
+          <a routerLink="/login">Inicia sesión</a>
+        </p>
+      </div>
+    </div>
+  </div>
