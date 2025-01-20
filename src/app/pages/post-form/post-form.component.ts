@@ -1,33 +1,41 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { timeLog } from 'console';
 import { CreatePost } from '../../common/Post/create-post';
+import { BlogService } from '../../services/blog.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-post-form',
   standalone: true,
-  imports: [],
+  imports: [HttpClientModule],
   templateUrl: './post-form.component.html',
-  styleUrl: './post-form.component.scss'
+  styleUrl: './post-form.component.scss',
+  providers: [BlogService]
 })
 export class PostFormComponent {
-  post: CreatePost = new CreatePost('','','',1);
-  @Output() unshow = new EventEmitter();
 
-  constructor(private route: Router){
+  
 
-  }
+  constructor(private router: Router, private route: ActivatedRoute, private blogService: BlogService) {}
+
   disapearCreatePost() {
-    
-    this.unshow.emit();
+    this.router.navigateByUrl('/blog')
   }
 
-  postSubmit(title:string, contenido:string, category: string){
-    
-    this.post.title = title;
-    this.post.content = contenido;
-    this.post.categoria = category;
-    console.log(this.post)
+  postSubmit(title: string, contenido: string, category: string) {
+
+    const theId:number = +this.route.snapshot.paramMap.get('id')!;
+    const post: CreatePost = new CreatePost(title, contenido, category, theId);
+    this.blogService.createPost(post).subscribe(
+      (response) => {
+        console.log('Post created successfully', response);
+        this.router.navigateByUrl('/blog'); // Navigate after successful creation
+      },
+      (error) => {
+        console.error('Error creating post', error); // Handle errors
+      }
+    );
   }
 
 }
