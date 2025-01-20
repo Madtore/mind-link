@@ -24,5 +24,9 @@ export const routes: Routes = [
   {
     path: 'video-call/:id',
     loadComponent: () => import('./pages/video-call/video-call.component').then(c => c.VideoCallComponent)
+  },
+  {
+    path: 'add-post/:id',
+    loadComponent: () => import('./pages/post-form/post-form.component').then(c => c.PostFormComponent)
   }
 ];
