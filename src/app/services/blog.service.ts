@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CreatePost } from '../common/Post/create-post';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { GetPost } from '../common/Post/get-post';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,9 @@ export class BlogService {
 
   createPost(post: CreatePost): Observable<any> {
     return this.httpClient.post(`${this.blogUrl}/createPost`, post);
+  }
+
+  loadPosts():Observable<GetPost[]>{
+    return this.httpClient.get<GetPost[]>(`${this.blogUrl}/`)
   }
 }
