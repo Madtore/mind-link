@@ -1,6 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
-*{
+:root {
+    --primary-color: #FF6B4A;
+    --warm-white: #FDF6F0;
+    --gray-600: #666666;
+    --gray-800: #333333;
+  }
+  
+  /* Reset básico */
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--gray-800);
+    line-height: 1.5;
+  }
