@@ -66,7 +66,7 @@
 
   .form-control:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
   }
 
@@ -100,7 +100,7 @@
   .type-option input[type="radio"] {
     width: 18px;
     height: 18px;
-    accent-color: #007bff;
+    accent-color: var(--primary-color);
   }
 
   .type-option label {
@@ -121,7 +121,7 @@
   .checkbox-group input[type="checkbox"] {
     width: 16px;
     height: 16px;
-    accent-color: #007bff;
+    accent-color: var(--primary-color);
   }
 
   .checkbox-group label {
@@ -130,7 +130,7 @@
   }
 
   .link {
-    color: #007bff;
+    color: var(--primary-color);
     text-decoration: none;
   }
 
@@ -141,7 +141,7 @@
   .register-button {
     width: 100%;
     padding: 0.875rem;
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 6px;
@@ -153,7 +153,7 @@
   }
 
   .register-button:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-color);
   }
 
   .register-button:active {
@@ -167,7 +167,7 @@
   }
 
   .login-link a {
-    color: #007bff;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
     margin-left: 0.5rem;
