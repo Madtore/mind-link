@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { PostFormComponent } from "../post-form/post-form.component";
+import { HeroComponent } from "../../components/hero/hero.component";
+import { InnovationComponent } from '../../components/innovation/innovation.component';
+import { PricingComponent } from "../../components/pricing/pricing.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [HeroComponent, PricingComponent, InnovationComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

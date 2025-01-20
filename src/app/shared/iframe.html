@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: #FFF5F2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      flex-grow: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .welcome-form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .continue-button {
+      background-color: #FF6B4A;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .continue-button:hover {
+      background-color: #ff5a36;
+    }
+
+    
+    .landscape {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50vh;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hills {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .cloud {
+      position: absolute;
+      fill: #fff;
+      opacity: 0.8;
+      animation: moveClouds 30s linear infinite; 
+    }
+
+    .cloud-1 {
+      top: 20%;
+      left: 10%;
+      width: 100px;
+    }
+
+    .cloud-2 {
+      top: 30%;
+      right: 15%;
+      width: 80px;
+    }
+
+  
+    @keyframes moveClouds {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .welcome-form {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    
+    <div class="welcome-form">
+      <h1>Empecemos por las presentaciones: ¿cómo te llamas?</h1>
+      <p class="subtitle">Si lo prefieres, puedes usar un apodo si te hace sentir más cómodo/a.</p>
+      <input type="text" placeholder="Salvatore">
+      <button class="continue-button">
+        Continuar
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="landscape">
+    <!-- Hills -->
+    <svg class="hills" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#E4A08C" d="M0,160 C400,40 800,280 1440,160 L1440,320 L0,320 Z"></path>
+      <path fill="#D84C3E" d="M0,220 C480,140 960,300 1440,220 L1440,320 L0,320 Z"></path>
+    </svg>
+
+    <!-- Clouds -->
+    <svg class="cloud cloud-1" viewBox="0 0 100 40" width="200" height="80">
+      <path d="M10,30 Q30,10 50,30 Q70,10 90,30 L90,35 L10,35 Z"></path>
+    </svg>
+    <svg class="cloud cloud-2" viewBox="0 0 80 30" width="160" height="100">
+      <path d="M10,20 Q25,5 40,20 Q55,5 70,20 L70,25 L10,25 Z"></path>
+    </svg>
+  </div>
+</body>
+</html>
