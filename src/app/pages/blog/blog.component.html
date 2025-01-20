@@ -8,7 +8,11 @@
     <!--<div *ngIf="show" class="app-post-form-container">
       <app-post-form (unshow)="unshowForm()"></app-post-form>
     </div>-->
-    <div class="posts-container">
-      
-    </div>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let post of posts; let i = index">
+          <app-post [post]="post"></app-post>
+        </div>
+      </div>
+    </div>    
   </section>
