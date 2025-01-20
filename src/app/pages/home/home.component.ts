@@ -11,6 +11,7 @@ import { PostFormComponent } from "../post-form/post-form.component";
 
 
 export class HomeComponent {
+  currentPhotoIndex = 0;
   
   photos = [
     { id: 1, url: 'https://pro.campus.sanofi/.imaging/mte/portal/3840/dam/Portal/Spain/articulos/e-health/mejores-apps-para-medicos-gratuitas/apps-medicina-hero.jpg/jcr:content/apps-medicina-hero.jpg', alt: 'Foto 1' },
@@ -25,9 +26,7 @@ export class HomeComponent {
       this.nextPhoto(); 
     }, 5000);
   }*/
-
-  currentPhotoIndex = 0;
-
+  
   prevPhoto() {
     this.currentPhotoIndex = this.currentPhotoIndex === 0 
       ? this.photos.length - 1 

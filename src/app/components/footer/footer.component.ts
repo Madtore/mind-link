@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent {
+  export class FooterComponent  {
+    logo = 'mindlink.png';
+    logoWidth = 64;
+    logoHeight = 64;
+  }
 
-}

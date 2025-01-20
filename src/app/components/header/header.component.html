@@ -1,14 +1,16 @@
 <header class="header">
   <nav class="nav-container">
     <div class="logo-container">
-      <a routerLink="/" class="logo">Logo</a>
+      <a routerLink="/" class="logo">
+        <img [src]="logo" alt="Mind Link Logo" [width]="logoWidth" [height]="logoHeight" />
+      </a>
     </div>
     
     <div class="nav-links">
       <a routerLink="/doctors" 
          routerLinkActive="active" 
          class="nav-link">
-         Médicos
+         Psicólogos
       </a>
       <a routerLink="/blog" 
          routerLinkActive="active" 
@@ -19,6 +21,11 @@
          routerLinkActive="active" 
          class="nav-link login">
          Log in
+      </a>
+      <a routerLink="/" 
+         routerLinkActive="active" 
+         class="nav-link start-questionnaire">
+         Inicia el cuestionario
       </a>
     </div>
   </nav>

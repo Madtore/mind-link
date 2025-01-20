@@ -8,13 +8,7 @@ import { ChatBotComponent } from './components/chat-bot/chat-bot.component';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent, ChatBotComponent],
-  template: `
-    <app-header />
-    <main>
-      <router-outlet />
-    </main>
-    <app-chat-bot />
-    <app-footer />
-  `
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {}
