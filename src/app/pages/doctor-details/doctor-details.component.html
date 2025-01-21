@@ -1,0 +1,40 @@
+<div class="psychologist-details-container">
+  <div class="profile-header">
+    <img class="profile-image" src="assets/profile-picture.jpg" alt="Foto de perfil">
+    <div class="profile-info">
+      <h1>{{details.name}}</h1>
+      <p>Psicóloga con amplia experiencia</p>
+    </div>
+  </div>
+
+  <div class="profile-content">
+    <div class="section">
+      <h2>Perfil</h2>
+      <p>
+        Terapias dirigidas tanto para el manejo de las emociones como de diferentes
+        problemáticas, ya sean de ansiedad, depresión o autoestima. Además,
+        especializada en ayudar a las personas a desarrollar nuevas herramientas para afrontar
+        las situaciones difíciles de su vida. Trabajo desde una perspectiva integral
+        considerando cuerpo y mente.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Disponible para</h2>
+      <p>Trabajo en línea</p>
+    </div>
+
+    <div class="section">
+      <h2>Áreas de trabajo</h2>
+      <ul *ngFor="let area of details.tags">
+        <li>{{ area }}</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Más información</h2>
+      <p><strong>Ubicación:</strong> Madrid</p>
+      <p><strong>Edad:</strong> 27 años</p>
+    </div>
+  </div>
+</div>

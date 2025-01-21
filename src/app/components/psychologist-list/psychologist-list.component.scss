@@ -1,0 +1,136 @@
+.directory-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+
+  .search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 1rem;
+    padding-right: 3rem;
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    font-size: 1rem;
+  }
+
+  .search-button {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #FF6B4A;
+    cursor: pointer;
+  }
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+
+  .tag-button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #FF6B4A;
+    border-radius: 1rem;
+    background: transparent;
+    color: #FF6B4A;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .tag-button.active {
+    background: #FF6B4A;
+    color: white;
+  }
+
+  .psychologists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .psychologist-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .psychologist-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .profile-info {
+    padding: 1.5rem;
+  }
+
+  .profile-info h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.25rem;
+  }
+
+  .profile-info p {
+    color: #666;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    background: #FFF1EC;
+    color: #FF6B4A;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 768px) {
+    .directory-container {
+      padding: 1rem;
+    }
+
+    .title {
+      font-size: 1.5rem;
+    }
+
+    .psychologists-grid {
+      grid-template-columns: 1fr;
+    }
+  }

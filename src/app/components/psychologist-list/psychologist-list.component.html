@@ -1,0 +1,32 @@
+<div class="search-container">
+  <input type="text" [formControl]="searchControl" class="search-input" placeholder="Encuentra">
+  <button class="search-button">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+
+<div class="tags-container">
+  <button *ngFor="let tag of tags" class="tag-button" [class.active]="selectedTags.includes(tag)"
+    (click)="toggleTag(tag)">
+    {{ tag }}
+  </button>
+</div>
+
+<div class="psychologists-grid">
+  <div class="psychologist-card" *ngFor="let psychologist of filteredPsychologists"
+  (click)="viewDetails(psychologist)">
+    
+    <div class="profile-image">
+      <img [src]="psychologist.imageUrl" [alt]="psychologist.name">
+    </div>
+    <div class="profile-info">
+      <h3>{{ psychologist.name }}</h3>
+      <p>{{ psychologist.specialization }}</p>
+      <div class="profile-tags">
+        <span class="tag" *ngFor="let tag of psychologist.tags">
+          {{ tag }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
