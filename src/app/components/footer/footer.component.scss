@@ -5,6 +5,7 @@
   margin-top: 6rem;
 }
 
+
 .footer::before {
   content: '';
   position: absolute;
@@ -12,7 +13,8 @@
   left: 0;
   right: 0;
   height: 100px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23FFE4D9' d='M0,70 C400,150 1000,-30 1440,70 L1440,100 L0,100 Z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23FFE4D9' d='M0,90 C300,50 1000,-30 1440,70 L1440,100 L0,100 Z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+
   background-size: cover;
   background-repeat: no-repeat;
 }

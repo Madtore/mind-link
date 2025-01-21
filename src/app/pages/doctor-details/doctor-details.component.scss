@@ -55,3 +55,35 @@
   .profile-content ul li {
     margin-bottom: 8px;
   }
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .cta-button {
+    background: #FF6B4A;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    border: none;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(255, 107, 74, 0.2);
+  }
+
+  .container-botton-back{
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
