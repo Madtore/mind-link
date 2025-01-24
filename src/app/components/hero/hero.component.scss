@@ -1,137 +1,195 @@
-.hero {
-  background-color: #FDF6F0;
-  padding: 8rem 2rem 4rem;
-  position: relative;
-  overflow: hidden;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-.wave-top {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  right: 0;
-  height: 100px;
-  overflow: hidden;
+.section {
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
 }
 
-.wave-bottom {
-  position: absolute;
-  bottom: -100px;
-  left: 0;
-  right: 0;
-  height: 100px;
-  overflow: hidden;
+#hero {
+  background: linear-gradient(to bottom, #FF6B4A, #FF3E81);
 }
 
-.wave-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
+#psychology {
+  background: linear-gradient(to bottom, #FF3E81, #1C6EA4);
 }
 
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -100px; 
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23FDF6F0' d='M0,70 C400,150 1000,-30 1440,70 L1440,100 L0,100 Z'%3E%3C/path%3E%3C/svg%3E") no-repeat center center;
-  background-size: cover;
-  z-index: 1;
+#innovation {
+  background: linear-gradient(to bottom, #1C6EA4, #32A879);
 }
 
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -100px;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23FDF6F0' d='M0,30 C400,-50 1000,150 1440,30 L1440,0 L0,0 Z'%3E%3C/path%3E%3C/svg%3E") no-repeat center center;
-  background-size: cover;
-  z-index: 1; 
+.content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-  .hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
+.content p {
+  font-size: 1.25rem;
+  max-width: 600px;
+}
+
+.cta-button {
+  background: white;
+  color: #FF6B4A;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  border: none;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(255, 107, 74, 0.2);
+}
+
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 2rem;
   }
 
-  .hero-content {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
+  .content p {
+    font-size: 1rem;
+  }
+}
+
+.vertical-navigation {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1000;
+}
+
+.nav-dot {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-dot:hover {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+.nav-dot.active {
+  background: #FF6B4A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#psychology .content {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+#psychology h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+
+#psychology p {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+/* Contenedor de las tarjetas */
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+/* Estilo de las tarjetas */
+.card {
+  background: #aa4edf;
+  border: 1px solid #FF6B4A;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.card .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FF6B4A;
+  margin-bottom: 1.5rem;
+}
+
+.card button {
+  background: #FF3E81;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card button:hover {
+  background: #db346e;
+}
+
+/* Resaltar la tarjeta destacada */
+.card.highlighted {
+  border: 2px solid #FF6B4A;
+  transform: scale(1.05);
+}
+
+.card.highlighted:hover {
+  transform: scale(1.08) translateY(-8px);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
   }
 
-  h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 1.5rem;
+  .card {
+    max-width: 90%;
   }
-
-  p {
-    font-size: 1.25rem;
-    color: #666;
-    margin-bottom: 2rem;
-  }
-
-  .cta-button {
-    background: #FF6B4A;
-    color: white;
-    padding: 1rem 2.5rem;
-    border-radius: 9999px;
-    border: none;
-    font-size: 1.125rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(255, 107, 74, 0.2);
-  }
-
-  .hero-images {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    pointer-events: none;
-  }
-
-  .person-left {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 200px;
-  }
-
-  .person-right {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 200px;
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-      padding: 6rem 1rem 3rem;
-    }
-
-    h1 {
-      font-size: 2rem;
-    }
-
-    p {
-      font-size: 1.125rem;
-    }
-
-    .hero-images img {
-      height: 150px;
-    }
-  }
+}
