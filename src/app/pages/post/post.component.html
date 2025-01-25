@@ -1,17 +1,20 @@
-<div class="card mb-4" style="max-width: 20rem;">
-    <!-- Optional Image 
-    <img *ngIf="post.image" [src]="post.image" class="card-img-top" alt="Post Image" />
-    -->
-    <!-- Card Body -->
-    <div class="card-body">
-      <!-- Post Title -->
-      <h5 class="card-title text-orange">{{ post.title }}</h5>
-  
-      <!-- Post Content -->
-      <p class="card-text">{{ post.content }}</p>
-  
-      <!-- Post Category -->
-      <p class="card-text small text-muted text-orange">{{ post.categoria }}</p>
-    </div>
-  
-</div>
+<article class="post-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+  <img
+    src="https://cdn.tailgrids.com/1.0/assets/images/blogs/blog-01/image-02.jpg"
+    alt="Post Image"
+    class="post-image w-full h-48 object-cover border-b border-gray-200"
+  />
+  <div class="post-content p-4">
+    <span class="post-category bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
+      {{ post.categoria }}
+    </span>
+    <h3 class="post-title mt-2 text-lg font-semibold">
+      <a href="javascript:void(0)" class="post-link text-gray-800 hover:text-orange-500 transition">
+        {{ post.title }}
+      </a>
+    </h3>
+    <p class="post-description mt-2 text-sm text-gray-600">
+      {{ post.content }}
+    </p>
+  </div>
+</article>

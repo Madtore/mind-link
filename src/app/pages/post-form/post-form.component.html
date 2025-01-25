@@ -1,23 +1,25 @@
-<form class="post-form">
-  <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Title</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your title here" #title/>
-  </div>
-  <div class="mb-3">
-    <label for="exampleFormControlSelect1" class="form-label">Category</label>
-    <select class="form-control" id="exampleFormControlSelect1" #category>
-      <option>Depresión y Ansiedad</option>
-      <option>Ansiedad Social</option>
-      <option>Presión Social</option>
-      <option>Estrés</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label">Post Content</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Write your post content here..." #contenido></textarea>
-  </div>
-  <div class="form-buttons">
-    <button type="button" class="btn btn-primary m-1" (click)="postSubmit(title.value,contenido.value, category.value)">Post</button>
-    <button type="button" class="btn btn-danger m-1" (click)="disapearCreatePost()">Cancel</button>
-  </div>
-</form>
+<div class="max-w-2xl mx-auto p-4">
+  <form action="/submit-post" method="POST">
+      <div class="mb-6">
+          <label for="title" class="block text-lg font-medium text-gray-800 mb-1">Title</label>
+          <input type="text" id="title" name="title" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" required>
+      </div>
+
+      <div class="mb-6">
+          <label for="content" class="block text-lg font-medium text-gray-800 mb-1">Content</label>
+          <textarea id="content" name="content" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" rows="6" required></textarea>
+      </div>
+
+      
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="user_avatar">Upload file</label>
+        <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file">
+        <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">Add A picture t o your</div>
+      </div>
+
+
+      <div class="flex justify-end">
+          <button type="submit" class="px-6 py-2 bg-indigo-500 text-white font-semibold rounded-md hover:bg-indigo-600 focus:outline-none">Submit</button>
+      </div>
+  </form>
+</div>

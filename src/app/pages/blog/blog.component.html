@@ -1,18 +1,17 @@
-<section class="blog-container">
+<div class="blog-container p-5 font-sans">
+  <header class="blog-header flex justify-between items-center mb-5">
+    <h1 class="text-2xl font-bold">My Blog</h1>
+    <button
+      class="add-post-btn px-5 py-2 text-white text-sm font-medium bg-orange-500 hover:bg-orange-600 rounded-lg shadow-md transition"
+      (click)="showForm()"
+    >
+      + Add Post
+    </button>
+  </header>
 
-    <div class="blog-header">
-      <h1>My Blog</h1>
-      <button class="add-post-btn" (click)="showForm()" >+ Add Post</button>
+  <div class="posts-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div *ngFor="let post of posts">
+      <app-post [post]="post"></app-post>
     </div>
-  
-    <!--<div *ngIf="show" class="app-post-form-container">
-      <app-post-form (unshow)="unshowForm()"></app-post-form>
-    </div>-->
-    <div class="container mt-4">
-      <div class="row">
-        <div class="col-md-4 mb-4" *ngFor="let post of posts; let i = index">
-          <app-post [post]="post"></app-post>
-        </div>
-      </div>
-    </div>    
-  </section>
+  </div>
+</div>
