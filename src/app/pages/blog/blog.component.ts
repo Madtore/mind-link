@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PostFormComponent } from "../post-form/post-form.component";
-import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
 import { GetPost } from '../../common/Post/get-post';
@@ -11,7 +10,7 @@ import { PostComponent } from "../post/post.component";
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [PostComponent, NgFor],
+  imports: [PostComponent],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.scss'
 })
