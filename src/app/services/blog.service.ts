@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CreatePost } from '../common/Post/create-post';
+import { CreatePost } from '../common/post/create-post';
 import { map, Observable } from 'rxjs';
-import { GetPost } from '../common/Post/get-post';
+import { GetPost } from '../common/post/get-post';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,9 @@
-import { Component} from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
+import { RouterLink, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../../services/auth/auth.service';
+import { PatientCreate } from '../../../common/login/DatientCreate';
+import { Gender } from '../../../common/login/enum/Gender';
 
 @Component({
   selector: 'app-register',
@@ -10,9 +13,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
-  userType: string = ''; // 'paciente' o 'medico'
 
-  // Modelo del formulario
+  constructor(private router: Router, private authService: AuthService){
+
+  }
+  
+  userType: string = '';
+
   formData = {
     firstName: '',
     lastName: '',
@@ -37,10 +44,32 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
-    if (this.userType === 'medico') {
-      console.log('Datos enviados (Médico):', this.formData);
-    } else {
-      console.log('Datos enviados (Paciente):', this.formData);
+
+    if(this.userType == "paciente"){
+      const patient: PatientCreate = new PatientCreate(
+        "John",
+        "Doe",
+        "john.dsxose@example.com",
+        "securePassword123",
+        this.formatDate(new Date("1995-06-15")),
+        Gender.MAN
+      );
+      this.authService.patientRegister(patient).subscribe(
+        (res) => {
+          if (typeof res === 'string') {
+            console.log("Success:", res); 
+          } else {
+            console.log("Success:", res.message); 
+          }
+        },
+        (err) => {
+          console.error("Error:", err);
+        }
+      )
     }
   }
+  private formatDate(date: Date): string {
+    return date.toISOString().split('T')[0]; 
+  }
+  
 }

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { timeLog } from 'console';
-import { CreatePost } from '../../common/Post/create-post';
+import { CreatePost } from '../../common/post/create-post';
 import { BlogService } from '../../services/blog.service';
 import { HttpClientModule } from '@angular/common/http';
 

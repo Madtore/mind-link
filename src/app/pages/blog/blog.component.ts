@@ -3,7 +3,7 @@ import { PostFormComponent } from "../post-form/post-form.component";
 import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
-import { GetPost } from '../../common/Post/get-post';
+import { GetPost } from '../../common/post/get-post';
 import { HttpClientModule } from '@angular/common/http';
 import { PostComponent } from "../post/post.component";
 
