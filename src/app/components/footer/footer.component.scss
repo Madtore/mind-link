@@ -6,19 +6,9 @@
   position: relative;
   background-color: #FFE4D9;
   padding: 4rem 2rem 2rem;
-  margin-top: 6rem;
 }
 
-.footer::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+
 
 .footer-content {
   max-width: 1200px;
@@ -143,11 +133,11 @@
   .footer-links {
     flex-direction: column;
   }
-  
+
   .footer-nav {
     gap: 2rem;
   }
-  
+
   .nav-column {
     min-width: 120px;
   }

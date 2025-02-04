@@ -20,6 +20,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  padding: 0.5rem 0;
 }
 
 .form-control {
@@ -31,8 +32,8 @@
 }
 
 .form-control:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  border-color: #ff7850;
+  box-shadow: 0 0 0 3px rgba(212, 130, 21, 0.1);
 }
 
 .user-type {
@@ -68,7 +69,7 @@
 .register-button {
   width: 100%;
   padding: 0.875rem;
-  background-color: #007bff;
+  background-color: #ff7850;
   color: white;
   border: none;
   border-radius: 6px;
@@ -80,5 +81,5 @@
 }
 
 .register-button:hover {
-  background-color: #0056b3;
+  background-color: #d8613d;
 }

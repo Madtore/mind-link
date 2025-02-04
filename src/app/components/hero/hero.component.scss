@@ -4,7 +4,7 @@ body {
 }
 
 .section {
-  height: 100vh; 
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,7 +112,6 @@ html {
   margin-bottom: 2rem;
 }
 
-/* Contenedor de las tarjetas */
 .pricing-cards {
   display: flex;
   justify-content: center;
@@ -121,7 +120,6 @@ html {
   padding: 0 1rem;
 }
 
-/* Estilo de las tarjetas */
 .card {
   background: #aa4edf;
   border: 1px solid #FF6B4A;
@@ -172,7 +170,6 @@ html {
   background: #db346e;
 }
 
-/* Resaltar la tarjeta destacada */
 .card.highlighted {
   border: 2px solid #FF6B4A;
   transform: scale(1.05);
@@ -182,7 +179,6 @@ html {
   transform: scale(1.08) translateY(-8px);
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .pricing-cards {
     flex-direction: column;
