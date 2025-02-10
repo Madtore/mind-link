@@ -83,3 +83,9 @@
 .register-button:hover {
   background-color: #d8613d;
 }
+
+.register-button:disabled {
+  background-color: gray;
+  cursor: not-allowed;   
+  opacity: 0.6;    
+}

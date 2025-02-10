@@ -1,33 +1,32 @@
 import { Injectable } from '@angular/core';
+import { type User } from '../../pages/auth/login/login.component';
 
+const TOKEN = "Token"
+const USER = "User"
 
 @Injectable({
   providedIn: 'root'
 })
-export class StorageServiceService {
-
-  static readonly TOKEN = "Token";
-  static readonly USER = "User";
-
+export class LocalStorageService {
 
   constructor() { }
 
   static saveToken(token: string) {
-    localStorage.removeItem(StorageServiceService.TOKEN)
-    localStorage.setItem(StorageServiceService.TOKEN, token)
+    localStorage.removeItem(TOKEN)
+    localStorage.setItem(TOKEN, token)
   }
 
-  static saveUser(user: any) {
-    localStorage.removeItem(StorageServiceService.USER)
-    localStorage.setItem(StorageServiceService.USER, JSON.stringify(user))
+  static saveUser(user: User) {
+    localStorage.removeItem(USER)
+    localStorage.setItem(USER, JSON.stringify(user))
   }
 
   static getToken(): string | null {
-    return localStorage.getItem(StorageServiceService.TOKEN)
+    return localStorage.getItem(TOKEN)
   }
 
   static getUser(): any {
-    return JSON.parse(localStorage.getItem(StorageServiceService.USER) || '{}')
+    return JSON.parse(localStorage.getItem(USER) || '{}')
   }
 
   static getUserId(): string {
@@ -59,8 +58,7 @@ export class StorageServiceService {
   }
 
   static logout() {
-    localStorage.removeItem(StorageServiceService.TOKEN)
-    localStorage.removeItem(StorageServiceService.USER)
+    localStorage.removeItem(TOKEN)
+    localStorage.removeItem(USER)
   }
-  
 }

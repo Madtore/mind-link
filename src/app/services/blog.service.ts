@@ -9,7 +9,7 @@ import { GetPost } from '../common/post/get-post';
 })
 export class BlogService {
 
-  blogUrl = 'http://localhost:8080/blog';
+  blogUrl = 'http://localhost:8080/api/v1/blog';
 
   constructor(private httpClient: HttpClient) { }
 

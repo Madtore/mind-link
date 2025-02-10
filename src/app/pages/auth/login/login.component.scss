@@ -151,3 +151,8 @@
       align-items: flex-start;
     }
   }
+  .login-button:disabled {
+    background-color: gray;
+    cursor: not-allowed;   
+    opacity: 0.6;    
+  }

@@ -5,12 +5,12 @@
         <p class="subtitle">Bienvenido de nuevo</p>
       </div>
 
-      <form class="login-form">
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="email">Email</label>
           <input 
             type="email" 
-            id="email" 
+            formControlName="email"
             placeholder="nombre@ejemplo.com"
             class="form-control">
         </div>
@@ -19,7 +19,7 @@
           <label for="password">Contraseña</label>
           <input 
             type="password" 
-            id="password" 
+            formControlName="password" 
             placeholder="Introduce tu contraseña"
             class="form-control">
         </div>
@@ -34,7 +34,7 @@
           </a>
         </div>
 
-        <button type="submit" class="login-button" routerLink="/login">
+        <button class="login-button" type="submit" [disabled]="loginForm.invalid">
           Iniciar sesión
         </button>
       </form>
