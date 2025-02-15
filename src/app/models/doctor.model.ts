@@ -7,3 +7,16 @@ export interface Doctor {
     description?: string;
     available?: boolean;
   }
+
+
+export interface DoctorResponse {
+    firstName: string,
+    lastName: string,
+    email: string,
+    dateOfBirth: string,
+    gender: string,
+    specialization: string,
+    licenseNumber: string,
+    priceHour: number
+
+}

@@ -1,1 +1,16 @@
-<p>doctors works!</p>
+<div class="doctors-container">
+    <section class="doctors-header">
+        <h2>Conoce a nuestros psicólogos y psicólogas</h2>
+        <div class="search-container">
+          <input 
+            type="text" 
+
+            placeholder="Encuentra especialistas por nombre o especialidad..."
+            class="search-input"
+          >
+        </div>
+      </section>
+<div *ngFor="let doctor of doctors">
+    <app-doctor-card [doctor]="doctor"></app-doctor-card>
+</div>
+</div>

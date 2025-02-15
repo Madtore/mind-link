@@ -7,8 +7,10 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
 
   const token = LocalStorageService.getToken(); 
 
-  if (req.url.includes('/auth/login')) {
-    return next(req);
+  const publicUrls = ['/auth/login', '/api/v1/doctors', '/api/v1/auth/register/patient', '/api/v1/auth/register/doctor'];
+
+  if (publicUrls.some(url => req.url.includes(url))) {
+    return next(req); 
   }
 
   const clonedRequest = req.clone({

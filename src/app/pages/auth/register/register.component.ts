@@ -94,7 +94,8 @@ export class RegisterComponent implements OnInit {
         formValue.dateOfBirth,
         formValue.gender as Gender,
         formValue.specialization,
-        formValue.licenseNumber
+        formValue.licenseNumber,
+        formValue.priceHour
       );
     }
 

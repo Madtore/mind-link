@@ -17,16 +17,37 @@
          class="nav-link">
          Blog
       </a>
+      @if (!loged()) {
       <a routerLink="/login" 
          routerLinkActive="active" 
          class="nav-link login">
          Log in
       </a>
-      <a routerLink="/" 
+    }
+    @else{
+        <a routerLink="/profile"
+       routerLink="/" 
          routerLinkActive="active" 
-         class="nav-link start-questionnaire">
-         Inicia el cuestionario
+         class="nav-link start-questionnaire"
+         (click)="logOut()"
+         >
+        Logout
       </a>
+      @if (logUserRole() == 'ROLE_DOCTOR') {
+        <a routerLink="/">
+          <img width="32" height="32" src="https://img.icons8.com/ios/50/laptop-metrics--v1.png" alt="laptop-metrics--v1"/>
+        </a>
+      }@else{
+        <a routerLink="/">
+          <img width="32" height="32" src="https://img.icons8.com/external-others-cattaleeya-thongsriphong/64/external-Patient-online-healthcare-outline-others-cattaleeya-thongsriphong-3.png"/>
+        </a>
+      }
+      
+    }
+
+   
+      
+    
     </div>
   </nav>
 </header>

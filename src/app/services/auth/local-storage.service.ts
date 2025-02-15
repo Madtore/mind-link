@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { type User } from '../../pages/auth/login/login.component';
 
 const TOKEN = "Token"
@@ -9,56 +9,62 @@ const USER = "User"
 })
 export class LocalStorageService {
 
+  static roleSigal = signal<string>(LocalStorageService.getUserRole());
+  static userSignal = signal<any>(LocalStorageService.getUser());
+
   constructor() { }
 
+  private static isBrowser(): boolean {
+    return typeof window !== 'undefined';   
+  }
+
   static saveToken(token: string) {
-    localStorage.removeItem(TOKEN)
-    localStorage.setItem(TOKEN, token)
+    if (!this.isBrowser()) return;  
+    localStorage.removeItem(TOKEN);
+    localStorage.setItem(TOKEN, token);
+  
   }
 
   static saveUser(user: User) {
-    localStorage.removeItem(USER)
-    localStorage.setItem(USER, JSON.stringify(user))
+    if (!this.isBrowser()) return;  
+    localStorage.removeItem(USER);
+    localStorage.setItem(USER, JSON.stringify(user));
+    this.userSignal.set(user);
+    this.roleSigal.set(user.role);
   }
 
   static getToken(): string | null {
-    return localStorage.getItem(TOKEN)
+    if (!this.isBrowser()) return null;  
+    return localStorage.getItem(TOKEN);
   }
 
   static getUser(): any {
-    return JSON.parse(localStorage.getItem(USER) || '{}')
+    if (!this.isBrowser()) return {};  
+    return JSON.parse(localStorage.getItem(USER) || '{}');
   }
 
   static getUserId(): string {
-    const user = this.getUser()
-
-    if (user == null) return ''
-
-    return user.id
+    const user = this.getUser();
+    return user?.id || ''; 
   }
 
   static getUserRole(): string {
-    const user = this.getUser()
-
-    if (user == null) return ''
-
-    return user.role
+    const user = this.getUser();
+    return user?.role || '';  
   }
 
   static isAdminLoggedIn(): boolean {
-    if (this.getToken() == null) return false
-
-    return this.getUserRole() === 'ADMIN'
+    return this.getToken() != null;
   }
 
   static isCustomerLoggedIn(): boolean {
-    if (this.getToken() == null) return false
-
-    return this.getUserRole() === 'CUSTOMER'
+    return this.getToken() != null;
   }
 
   static logout() {
-    localStorage.removeItem(TOKEN)
-    localStorage.removeItem(USER)
+    if (!this.isBrowser()) return; 
+    localStorage.removeItem(TOKEN);
+    localStorage.removeItem(USER);
+    this.userSignal.set(null);
   }
 }
