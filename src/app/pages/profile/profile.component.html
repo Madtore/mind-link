@@ -1,16 +1,37 @@
 <div class="profile-container">
-    <img [src]="user.photo" alt="Foto de perfil" class="profile-photo" />
-    <h2>{{ user.name }}</h2>
-    <p>{{ user.email }}</p>
-    
-    <div class="appointments">
-      <button (click)="filter = 'futura'">Citas futuras</button>
-      <button (click)="filter = 'pasada'">Citas pasadas</button>
-      
-      <div *ngFor="let appointment of user.appointments">
-        <div *ngIf="appointment.status === filter">
-          <p>{{ appointment.date }} - {{ appointment.psychologist }}</p>
+  <div class="profile-left">
+    <div class="user-info">
+      <h2>{{ user.name }}</h2>
+      <p>Email: {{ user.email }}</p>
+      <button>Cambiar contraseña</button>
+    </div>
+  </div>
+
+  <div class="profile-right">
+    <div class="calendar">
+      <div class="calendar-header">
+        <button (click)="prevMonth()">&#9664;</button>
+        <h2>{{ currentDate.toLocaleString('es-ES', { month: 'long', year: 'numeric' }) }}</h2>
+        <button (click)="nextMonth()">&#9654;</button>
+      </div>
+      <div class="calendar-grid">
+        <div class="day">Lunes</div>
+        <div class="day">Martes</div>
+        <div class="day">Miércoles</div>
+        <div class="day">Jueves</div>
+        <div class="day">Viernes</div>
+        <div class="day">Sábado</div>
+        <div class="day">Domingo</div>
+
+        <div *ngFor="let _ of [].constructor(firstDayOfMonth)" class="empty"></div>
+
+        <div *ngFor="let day of daysInMonth" class="day-number">
+          {{ day }}
+          <div *ngFor="let appointment of getAppointmentsForDay(day)" class="event" [ngClass]="appointment.status === 'futura' ? 'event-green' : 'event-gray'">
+            {{ appointment.psychologist }}
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

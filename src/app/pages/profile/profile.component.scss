@@ -1,32 +1,60 @@
 .profile-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    gap: 20px;
     padding: 20px;
-}
+    height: 100%;
+  }
   
-.profile-photo {
-    width: 120px;
-    height: 120px;
+  .profile-left {
+    width: 30%;
+    text-align: center;
+  }
+  
+  .profile-icon {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    margin-bottom: 10px;
-}
+  }
   
-.appointments {
-    margin-top: 20px;
-}
+  .user-info {
+    margin-top: 10px;
+  }
   
-button {
-    margin: 5px;
+  .profile-right {
+    width: 70%;
+  }
+  
+  .calendar {
+    border: 1px solid #ddd;
     padding: 10px;
-    border: none;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-}
+  }
   
-button:hover {
-    background-color: #0056b3;
-}
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .day, .day-number {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .event {
+    display: block;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+  }
+  
+  .event-green { background-color: green; color: white; }
+  .event-gray { background-color: gray; color: white; }
