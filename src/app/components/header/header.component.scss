@@ -53,12 +53,10 @@
 
   .nav-link:hover {
     color: #ff7850;
-
   }
 
   .nav-link.active {
     color: #ff7850;
-
   }
 
   .login {
@@ -74,18 +72,17 @@
     color: white;
   }
 
-  .start-questionnaire {
-    background-color: #ff7850;
+  .profile {
+    border: 2px solid #ff7850;
     padding: 0.25rem 1rem;
     border-radius: 16px;
     font-size: 0.875rem;
-    color: white;
-    
+    color: #ff7850;
+    transition: all 0.3s ease;
   }
-
-  .start-questionnaire:hover {
+  
+  .profile:hover {
     background-color: #ff7850;
-    scale: 1.05;
     color: white;
   }
 
