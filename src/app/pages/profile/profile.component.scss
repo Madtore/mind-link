@@ -1,60 +1,203 @@
 .profile-container {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
-    height: 100%;
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #fd9077, #FFE4D9);
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
-  
-  .profile-left {
-    width: 30%;
-    text-align: center;
-  }
-  
-  .profile-icon {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-  }
-  
-  .user-info {
-    margin-top: 10px;
-  }
-  
-  .profile-right {
-    width: 70%;
-  }
-  
-  .calendar {
-    border: 1px solid #ddd;
-    padding: 10px;
-  }
-  
-  .calendar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-  }
-  
-  .day, .day-number {
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ddd;
-  }
-  
-  .event {
-    display: block;
-    margin-top: 5px;
-    padding: 5px;
-    font-size: 0.8rem;
-    border-radius: 5px;
-  }
-  
-  .event-green { background-color: green; color: white; }
-  .event-gray { background-color: gray; color: white; }
+}
+
+.profile-left {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.profile-right {
+  flex: 2;
+}
+
+.user-info, .appointments-today, .calendar {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.user-info h2, .appointments-today h3, .calendar-header h2 {
+  color: #2d3748;
+  font-size: 1.5rem;
+}
+
+.user-info p, .appointments-today p {
+  margin: 0.5rem 0;
+  color: #4a5568;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background: #28a745;
+  transform: translateY(-1px);
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  background: white;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.day, .day-number {
+  background: #f7fafc;
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  color: #4a5568;
+  border-radius: 6px;
+}
+
+.day-number {
+  min-height: 130px;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.day-number::before {
+  content: attr(data-day);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+.day-number:hover {
+  background: #edf2f7;
+  transform: translateY(-2px);
+}
+
+.event {
+  position: relative;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background-color: white;
+}
+
+.event .time {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.event .email {
+  color: #4a5568;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event .session-type {
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+.event-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.event-buttons button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.event-buttons button img {
+  width: 20px;
+  height: 20px;
+}
+
+.event-green {
+  background: linear-gradient(145deg, #d4edda 0%, #c3e6cb 100%);
+  border-left: 3px solid #28a745;
+}
+
+.event-green:hover {
+  background: linear-gradient(145deg, #c3e6cb 0%, #b1dfbb 100%);
+}
+
+.event-gray {
+  background: linear-gradient(145deg, #e9ecef 0%, #dee2e6 100%);
+  border-left: 3px solid #6c757d;
+}
+
+.event-gray:hover {
+  background: linear-gradient(145deg, #dee2e6 0%, #ced4da 100%);
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #edf2f7;
+  border-top: 4px solid #e74c3c;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.empty {
+  background: #f7fafc;
+  min-height: 130px;
+  border-radius: 6px;
+}
+
+.day-number {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  position: relative;
+}
+

@@ -13,6 +13,8 @@ import { AppointmentService } from '../../services/appointment/appointment.servi
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  loading = false;
+  todaysAppointments: Appointment[] = [];
   profile?: Profile | ProfileDoctor;
   isDoctor = false;
   currentDate = new Date();
@@ -22,6 +24,7 @@ export class ProfileComponent implements OnInit {
     appointments: Appointment[];
   }> = [];
   appointments: Appointment[] = [];
+  dataLoading = true;
 
 
   getDoctorProfile(): ProfileDoctor | undefined {
@@ -34,27 +37,43 @@ export class ProfileComponent implements OnInit {
   constructor(private profileService: ProfileService, private appointmentService: AppointmentService) {}
 
   ngOnInit() {
-    this.loadProfile();
-    this.generateCalendarDays();
-    this.loadAppointments();
+    const today = new Date();
+    this.appointmentService.getAppointment().subscribe(appointments => {
+      this.appointments = this.appointments = appointments.map((appointment: Appointment) => {
+        const appointmentDate = new Date(appointment.appointmentDate);
+        const status: 'futura' | 'pasada' = today < appointmentDate ? 'futura' : 'pasada';
+        return { ...appointment, status };
+      });
+      this.todaysAppointments = this.appointments.filter(appointment => {
+          const appointmentDate = new Date(appointment.appointmentDate);
+          return appointmentDate.toDateString() === today.toDateString();
+        });
+
+      
+      
+      this.loadProfile();
+      this.generateCalendarDays();
+      this.dataLoading = false;
+  });
+
   }
 
-  private loadAppointments() {
+  loadAppointments() {
     const today = new Date();
     this.appointmentService.getAppointment().subscribe(
       appointments => {
-        this.appointments = appointments.map((appointment: Appointment): Appointment => {
+        this.appointments = appointments.map((appointment: Appointment) => {
           const appointmentDate = new Date(appointment.appointmentDate);
-          appointmentDate.setHours(0, 0, 0, 0);  
-        
           const status: 'futura' | 'pasada' = today < appointmentDate ? 'futura' : 'pasada';
-        
-          return {
-            ...appointment,
-            status
-          };
+          return { ...appointment, status };
         });
-        console.log(this.appointments); // Verificamos que las citas se están procesando correctamente
+
+        this.todaysAppointments = this.appointments.filter(appointment => {
+          const appointmentDate = new Date(appointment.appointmentDate);
+          return appointmentDate.toDateString() === today.toDateString();
+        });
+
+        this.dataLoading = false;
       },
       error => {
         console.error("Error al obtener citas:", error);
@@ -108,6 +127,7 @@ export class ProfileComponent implements OnInit {
         appointments: this.getAppointmentsForDay(day)
       });
     }
+ 
   }
 
   private getAppointmentsForDay(day: number): Appointment[] {
@@ -116,12 +136,35 @@ export class ProfileComponent implements OnInit {
       this.currentDate.getMonth(),
       day
     );
-    
+
     return this.appointments.filter(appointment => {
       const appointmentDate = new Date(appointment.appointmentDate);
       return appointmentDate.getDate() === date.getDate() &&
              appointmentDate.getMonth() === date.getMonth() &&
              appointmentDate.getFullYear() === date.getFullYear();
     });
+  }
+
+  openUrl(idAppointment: number) {
+    this.appointmentService.getUrlAppointment(idAppointment).subscribe(
+      response => {
+        console.log('URL de la cita:', response);
+        window.open(response.roomUrl, '_blank');
+      },
+      error => {
+        alert('Error al obtener la URL de la cita');
+      }
+    )
+  }
+  deleteAppointment(id: number) {
+    this.appointmentService.deleteAppointment(id).subscribe(
+      response => {
+        this.loadAppointments(); 
+        this.generateCalendarDays(); 
+      },
+      error => {
+        console.error("Error al eliminar cita:", error);
+      }
+    )
   }
 }

@@ -36,9 +36,5 @@ export const routes: Routes = [
   {
     path: 'add-post/:id',
     loadComponent: () => import('./pages/post-form/post-form.component').then(c => c.PostFormComponent)
-  },
-  {
-    path: 'appointment',
-    loadComponent: () => import('./pages/appointment/appointment.component').then(c => c.AppointmentComponent)
   }
 ];

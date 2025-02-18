@@ -1,48 +1,81 @@
 <div class="page">
-<div class="container">
+  <div class="container">
     <div class="header">
-       
-        <div>
-            <h1 class="doctor-name" id="doctorName"></h1>
-            <p class="doctor-specialty" id="doctorSpecialty"></p>
-        </div>
+      <div>
+        <h1 class="doctor-name" id="doctorName">{{ doctor?.firstName }} {{ doctor?.lastName }}</h1>
+        <p class="doctor-specialty" id="doctorSpecialty">{{ doctor?.specialization }}</p>
+      </div>
     </div>
-    
+
     <section id="perfil" class="section">
-        <h2 class="section-title">Perfil</h2>
-        <p>Los profesionales de la salud dedican su vida a cuidar el bienestar de sus pacientes. Cada médico tiene un enfoque único basado en su especialización, experiencia y filosofía de tratamiento.</p>
-        
-        <div class="doctor-info">
-            <div class="info-item">
-                <span class="info-label">Nombre:</span>
-                <span id="fullName">{{doctor?.firstName}} {{doctor?.lastName}}</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Email:</span>
-                <span id="email">{{doctor?.email}}</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Género:</span>
-                <span id="gender">{{doctor?.gender}}</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Especialización:</span>
-                <span id="specialization">{{doctor?.specialization}}</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Número de licencia:</span>
-                <span id="licenseNumber">{{doctor?.licenseNumber}}</span>
-            </div>
+      <h2 class="section-title">Perfil</h2>
+      <p>Los profesionales de la salud dedican su vida a cuidar el bienestar de sus pacientes...</p>
+
+      <div class="doctor-info">
+        <div class="info-item">
+          <span class="info-label">Nombre:</span>
+          <span>{{ doctor?.firstName }} {{ doctor?.lastName }}</span>
         </div>
-        
-        <div class="price">
-            Precio por hora: <span id="priceHour">{{doctor?.priceHour}}</span>€
+        <div class="info-item">
+          <span class="info-label">Email:</span>
+          <span>{{ doctor?.email }}</span>
         </div>
+        <div class="info-item">
+          <span class="info-label">Género:</span>
+          <span>{{ doctor?.gender }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Especialización:</span>
+          <span>{{ doctor?.specialization }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Número de licencia:</span>
+          <span>{{ doctor?.licenseNumber }}</span>
+        </div>
+      </div>
+
+      <div class="price">
+        Precio por hora: <span>{{ doctor?.priceHour }}</span>€
+      </div>
     </section>
-    
+
     <div class="button-container">
-        <button class="cta-button">Ver Post</button>
-        <button class="cta-button">Reservar cita</button>
+      <button class="cta-button" (click)="openModal()">Reservar cita</button>
     </div>
-</div>
+
+    <!-- Modal -->
+    <div class="modal" *ngIf="isModalOpen">
+      <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+          <div>
+            <label for="doctorEmail">Correo del Doctor:</label>
+            <span>{{ doctor?.email }}</span>
+          </div>
+
+          <div>
+            <label for="patientEmail">Correo del Paciente:</label>
+            <span>{{ patientEmail }}</span>
+          </div>
+
+          <div>
+            <label for="appointmentDate">Fecha de la Cita:</label>
+            <input id="appointmentDate" formControlName="appointmentDate" type="datetime-local" [min]="minDate"
+              step="1800" (change)="onTimeChange($event)" />
+          </div>
+
+          <div>
+            <label for="sessionType">Tipo de Sesión:</label>
+            <select id="sessionType" formControlName="sessionType">
+              <option value="FOLLOW_UP">Seguimiento</option>
+              <option value="INITIAL_EVALUATION">Inicial</option>
+              <option value="CRISIS_INTERVENTION">Intervención en crisis</option>
+            </select>
+          </div>
+
+          <button type="submit" [disabled]="appointmentForm.invalid">Guardar Cita</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

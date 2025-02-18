@@ -30,6 +30,7 @@ export class ProfileService {
 
   getProfileDoctor(): Observable<ProfileDoctor> {
     const email = LocalStorageService.getUser()?.email;
+    if(!email) return new Observable<ProfileDoctor>();
     return this.http.get<ProfileDoctor>(
       `${this.API_URL}/doctor?email=${email}`,
       { headers: this.headers }
@@ -38,6 +39,7 @@ export class ProfileService {
 
   getProfilePatient(): Observable<Profile> {
     const email = LocalStorageService.getUser()?.email;
+    if(!email) return new Observable<Profile>();
     return this.http.get<Profile>(
       `${this.API_URL}/patient?email=${email}`,
       { headers: this.headers }
