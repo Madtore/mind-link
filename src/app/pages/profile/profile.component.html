@@ -11,7 +11,6 @@
         <p>Licencia: {{ getDoctorProfile()?.licenseNumber }}</p>
         <p>Precio/Hora: €{{ getDoctorProfile()?.priceHour }}</p>
       </div>
-      <button>Cambiar contraseña</button>
     </div>
     <div class="appointments-today">
       <h3>Citas para hoy</h3>
@@ -33,7 +32,7 @@
       <div class="calendar">
         <div class="calendar-header">
           <button (click)="prevMonth()">&#9664;</button>
-          <h2>{{ currentDate.toLocaleString('es-ES', { month: 'long', year: 'numeric' }) }}</h2>
+          <h2>{{ currentDate.toLocaleString('es-ES', { month: 'long', year: 'numeric' }).toLocaleUpperCase() }}</h2>
           <button (click)="nextMonth()">&#9654;</button>
         </div>
 

@@ -50,7 +50,7 @@ button {
 }
 
 button:hover {
-  background: #28a745;
+  background: #c0392b;
   transform: translateY(-1px);
 }
 
@@ -131,6 +131,11 @@ button:hover {
   color: #718096;
 }
 
+.event-green {
+  background: linear-gradient(145deg, #e57b17cf 0%, #ffd3b2b6 100%);
+  border-left: 3px solid #e2704aca;
+}
+
 .event-buttons {
   display: flex;
   justify-content: flex-end;
@@ -146,15 +151,6 @@ button:hover {
 .event-buttons button img {
   width: 20px;
   height: 20px;
-}
-
-.event-green {
-  background: linear-gradient(145deg, #d4edda 0%, #c3e6cb 100%);
-  border-left: 3px solid #28a745;
-}
-
-.event-green:hover {
-  background: linear-gradient(145deg, #c3e6cb 0%, #b1dfbb 100%);
 }
 
 .event-gray {
@@ -200,4 +196,5 @@ button:hover {
   border-radius: 5px;
   position: relative;
 }
+
 

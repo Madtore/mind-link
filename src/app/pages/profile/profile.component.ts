@@ -37,25 +37,7 @@ export class ProfileComponent implements OnInit {
   constructor(private profileService: ProfileService, private appointmentService: AppointmentService) {}
 
   ngOnInit() {
-    const today = new Date();
-    this.appointmentService.getAppointment().subscribe(appointments => {
-      this.appointments = this.appointments = appointments.map((appointment: Appointment) => {
-        const appointmentDate = new Date(appointment.appointmentDate);
-        const status: 'futura' | 'pasada' = today < appointmentDate ? 'futura' : 'pasada';
-        return { ...appointment, status };
-      });
-      this.todaysAppointments = this.appointments.filter(appointment => {
-          const appointmentDate = new Date(appointment.appointmentDate);
-          return appointmentDate.toDateString() === today.toDateString();
-        });
-
-      
-      
-      this.loadProfile();
-      this.generateCalendarDays();
-      this.dataLoading = false;
-  });
-
+    this.loadAppointments();
   }
 
   loadAppointments() {
@@ -64,6 +46,15 @@ export class ProfileComponent implements OnInit {
       appointments => {
         this.appointments = appointments.map((appointment: Appointment) => {
           const appointmentDate = new Date(appointment.appointmentDate);
+          if (appointment.sessionType === 'INITIAL_EVALUATION') {
+            appointment.sessionType = 'Evaluación Inicial';
+          }
+          if (appointment.sessionType === 'CRISIS_INTERVENTION') {
+            appointment.sessionType = 'Crisis de Intervención';
+          }
+          if (appointment.sessionType === 'FOLLOW_UP') {
+            appointment.sessionType = 'Seguimiento';
+          }
           const status: 'futura' | 'pasada' = today < appointmentDate ? 'futura' : 'pasada';
           return { ...appointment, status };
         });
@@ -72,8 +63,11 @@ export class ProfileComponent implements OnInit {
           const appointmentDate = new Date(appointment.appointmentDate);
           return appointmentDate.toDateString() === today.toDateString();
         });
+        this.loadProfile();
+      this.generateCalendarDays();
+      this.dataLoading = false;
 
-        this.dataLoading = false;
+        
       },
       error => {
         console.error("Error al obtener citas:", error);
@@ -159,6 +153,7 @@ export class ProfileComponent implements OnInit {
   deleteAppointment(id: number) {
     this.appointmentService.deleteAppointment(id).subscribe(
       response => {
+        console.log('Cita eliminada:', response);
         this.loadAppointments(); 
         this.generateCalendarDays(); 
       },
