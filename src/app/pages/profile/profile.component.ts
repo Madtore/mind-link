@@ -29,6 +29,8 @@ export class ProfileComponent implements OnInit {
   currentDay: number = this.currentDate.getDay();
   daysInMonth: number[] = [];
   firstDayOfMonth: number = 0;
+  hoveredAppointment: { date: string, psychologist: string, status: string } | null = null;
+  overlayStyles = { top: '0px', left: '0px' };
 
   ngOnInit() {
     this.currentDate = new Date;
@@ -60,5 +62,17 @@ export class ProfileComponent implements OnInit {
   getAppointmentsForDay(day: number) {
     const dateString = `${this.currentYear}-${(this.currentMonth + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
     return this.user.appointments.filter(appointment => appointment.date === dateString && appointment.status === this.filter);
+  }
+
+  onHover(appointment: any, event: MouseEvent) {
+    this.hoveredAppointment = appointment;
+    this.overlayStyles = {
+      top: `${event.clientY + 10}px`,
+      left: `${event.clientX + 10}px`
+    };
+  }
+
+  onLeave() {
+    this.hoveredAppointment = null;
   }
 }

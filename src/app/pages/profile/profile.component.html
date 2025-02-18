@@ -27,11 +27,18 @@
 
         <div *ngFor="let day of daysInMonth" class="day-number">
           {{ day }}
-          <div *ngFor="let appointment of getAppointmentsForDay(day)" class="event" [ngClass]="appointment.status === 'futura' ? 'event-green' : 'event-gray'">
+          <div *ngFor="let appointment of getAppointmentsForDay(day)" class="event" [ngClass]="appointment.status === 'futura' ? 'event-green' : 'event-gray'" (mouseenter)="onHover(appointment, $event)"
+            (mouseleave)="onLeave()">
             {{ appointment.psychologist }}
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div class="appointment-overlay" *ngIf="hoveredAppointment" [ngStyle]="overlayStyles">
+  <p><strong>Asunto:</strong> Consulta psicológica</p>
+  <p><strong>Médico:</strong> {{ hoveredAppointment.psychologist }}</p>
+  <p><strong>Hora:</strong> 10:00 AM</p>
 </div>

@@ -3,6 +3,8 @@
     gap: 20px;
     padding: 20px;
     height: 100%;
+    margin-bottom: 6rem;
+    margin-top: 2rem;
   }
   
   .profile-left {
@@ -22,11 +24,15 @@
   
   .profile-right {
     width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .calendar {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 20px;
+    min-height: 500px;
   }
   
   .calendar-header {
@@ -40,21 +46,36 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
+    min-height: 400px;
   }
   
   .day, .day-number {
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid #ddd;
+    min-height: 80px;
   }
   
   .event {
     display: block;
-    margin-top: 5px;
-    padding: 5px;
-    font-size: 0.8rem;
+    margin-top: 8px;
+    padding: 8px;
+    font-size: 0.9rem;
     border-radius: 5px;
+    position: relative;
+    cursor: pointer;
   }
   
   .event-green { background-color: green; color: white; }
   .event-gray { background-color: gray; color: white; }
+
+  .appointment-overlay {
+    position: fixed;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 200px;
+    transition: opacity 0.2s ease-in-out;
+  }
