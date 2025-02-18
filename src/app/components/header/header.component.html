@@ -28,17 +28,17 @@
         <a routerLink="/profile"
        routerLink="/" 
          routerLinkActive="active" 
-         class="nav-link start-questionnaire"
+         class="nav-link profile"
          (click)="logOut()"
          >
         Logout
       </a>
       @if (logUserRole() == 'ROLE_DOCTOR') {
-        <a routerLink="/profile">
-          <img width="32" height="32" src="https://img.icons8.com/ios/50/laptop-metrics--v1.png" alt="laptop-metrics--v1"/>
+        <a routerLink="/profile" class="nav-link profile">
+          <img width="32" height="32" src="https://img.icons8.com/ios/50/laptop-metrics--v1.png"/>
         </a>
       }@else{
-        <a routerLink="/profile">
+        <a routerLink="/profile" class="nav-link profile">
           <img width="32" height="32" src="https://img.icons8.com/external-others-cattaleeya-thongsriphong/64/external-Patient-online-healthcare-outline-others-cattaleeya-thongsriphong-3.png"/>
         </a>
       }  

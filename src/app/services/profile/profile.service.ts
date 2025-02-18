@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LocalStorageService } from '../auth/local-storage.service';
 import { Profile, ProfileDoctor } from '../../models/profile';
-import { Appointment } from '../../models/appointment';
+import { Router } from '@angular/router';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class ProfileService {
 
   constructor(
     private http: HttpClient,
-    private localStorageService: LocalStorageService
+    private router: Router
   ) {}
 
   private get headers(): HttpHeaders {

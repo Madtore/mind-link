@@ -46,6 +46,9 @@ export class DoctorPageComponent implements OnInit {
   }
 
   openModal() {
+    if (LocalStorageService.getUserRole() !== 'ROLE_PATIENT'){
+      alert('Debes iniciar sesión como paciente para reservar una cita.');
+    }
     this.isModalOpen = true;
   }
 
