@@ -1,0 +1,60 @@
+.profile-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: 100%;
+  }
+  
+  .profile-left {
+    width: 30%;
+    text-align: center;
+  }
+  
+  .profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .user-info {
+    margin-top: 10px;
+  }
+  
+  .profile-right {
+    width: 70%;
+  }
+  
+  .calendar {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .day, .day-number {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .event {
+    display: block;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+  }
+  
+  .event-green { background-color: green; color: white; }
+  .event-gray { background-color: gray; color: white; }

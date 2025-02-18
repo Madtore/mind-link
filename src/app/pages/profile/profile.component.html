@@ -1,0 +1,46 @@
+<div class="profile-container">
+  <div class="profile-left">
+    <div class="user-info">
+      <h2>{{ profile?.firstName }} {{ profile?.lastName }}</h2>
+      <p>Email: {{ profile?.email }}</p>
+      <div *ngIf="isDoctor">
+        <p>Especialización: {{ getDoctorProfile()?.specialization }}</p>
+        <p>Licencia: {{ getDoctorProfile()?.licenseNumber }}</p>
+        <p>Precio/Hora: €{{ getDoctorProfile()?.priceHour }}</p>
+      </div>
+      <button>Cambiar contraseña</button>
+    </div>
+  </div>
+
+  <div class="profile-right">
+    <div class="calendar">
+      <div class="calendar-header">
+        <button (click)="prevMonth()">&#9664;</button>
+        <h2>{{ currentDate | date:'MMMM yyyy':'':'es-ES' | titlecase }}</h2>
+        <button (click)="nextMonth()">&#9654;</button>
+      </div>
+
+      <div class="calendar-grid">
+        <div class="day">Lunes</div>
+        <div class="day">Martes</div>
+        <div class="day">Miércoles</div>
+        <div class="day">Jueves</div>
+        <div class="day">Viernes</div>
+        <div class="day">Sábado</div>
+        <div class="day">Domingo</div>
+
+        <ng-container *ngFor="let day of calendarDays">
+          <div *ngIf="day.number !== 0" class="day-number">
+            {{ day.number }}
+            <div *ngFor="let appointment of day.appointments" 
+                 class="event"
+                 [ngClass]="appointment.status === 'futura' ? 'event-green' : 'event-gray'">
+              {{ appointment.doctorEmail }}
+            </div>
+          </div>
+          <div *ngIf="day.number === 0" class="empty"></div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
