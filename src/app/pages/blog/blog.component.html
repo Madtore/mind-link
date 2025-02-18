@@ -2,13 +2,23 @@
   <div class="blog-content">
     <h1>El Blog de Mindlink</h1>
     <p>Descubre artículos de psicología y psicoterapia revisados por nuestro equipo clínico.</p>
-    <button class="cta-button" (click)="scrollToSection('section2')">Empezar</button>
+    <p>Explora información basada en evidencia, consejos prácticos y experiencias de expertos en el campo.</p>
+    <button class="cta-button" (click)="scrollToSection('section2')">Explorar Artículos</button>
   </div>
 </section>
 
-<section id="section2" class="add-post-section">
-  <div class="add-post-content">
-    <p>Explora nuestras publicaciones o añade la tuya para inspirar a otros.</p>
-    <button class="add-post-btn" (click)="showForm()">+ Añadir Post</button>
+<section id="section2" class="post-section">
+  @if (userRole=="ROLE_DOCTOR") {
+    <div class="add-post-container">
+      <h2>Comparte tu conocimiento</h2>
+      <p>Explora nuestras publicaciones o añade la tuya para inspirar a otros y aportar valor a nuestra comunidad.</p>
+      <button class="add-post-btn" (click)="showForm()">+ Añadir Post</button>
+    </div>
+  }
+
+  <div class="post-grid">
+    <div *ngFor="let post of posts" class="post-item">
+      <app-post [post]="post" ></app-post>
+    </div>
   </div>
 </section>

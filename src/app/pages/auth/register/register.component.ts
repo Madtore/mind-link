@@ -5,7 +5,6 @@ import { AuthService } from '../../../services/auth/auth.service';
 import { PatientCreate } from '../../../common/login/PatientCreate';
 import { DoctorCreate } from '../../../common/login/DoctorCreate';
 import { Gender } from '../../../common/login/enum/Gender';
-import { NotificationService } from '../../../services/notification/notification.service';
 
 @Component({
   selector: 'app-register',
@@ -20,18 +19,14 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   userType: string = 'paciente';
   toastMessage: string = '';
-  toastType: 'success' | 'error' = 'success';
 
 
   constructor(
     private router: Router,
     private authService: AuthService,
     private fb: FormBuilder,
-    private notificationService: NotificationService
   ) {
     const today = new Date();
-
-    // Set max date to 18 years ago
     const maxYear = new Date();
     maxYear.setFullYear(today.getFullYear() - 18);
     this.today = maxYear.toISOString().split('T')[0];

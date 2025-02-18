@@ -67,4 +67,9 @@ export class LocalStorageService {
     localStorage.removeItem(USER);
     this.userSignal.set(null);
   }
+
+  static getUserEmail(): string {
+    const user = this.getUser();
+    return user?.email || ''; 
+  }
 }

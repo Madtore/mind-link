@@ -1,3 +1,130 @@
-.text-orange {
-    color: orange;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;  
+    scroll-behavior: smooth; 
+  } 
+  
+  .post-card {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .post-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-image {
+    width: 100%;
+    height: 12rem; 
+    object-fit: cover;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .post-content {
+    padding: 1rem;
+  }
+  
+  .post-category {
+    background-color: #FF6B4A;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+  }
+  
+  .post-title {
+    margin-top: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+  
+  .post-link {
+    color: #1f2937;
+    transition: color 0.3s ease;
+  }
+  
+  .post-link:hover {
+    color: #FF6B4A;
+  }
+  
+  
+  
+  
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px;
+  }
+  
+  .post-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+.post-description {
+  min-height: 0; 
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3em;
+  line-height: 1.5;
+  min-height: 0;
+}
+
+.post-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden; 
+}
+.like-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.like-icon.liked {
+  color: #ef4444;
+  transform: scale(1.1); 
+}
+
+.like-icon.unliked {
+  color: #6b7280; 
+}
+
+.like-icon:hover {
+  color: #ef4444; 
+  transform: scale(1.2); 
+}
+.like-container {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Adjust spacing as needed */
+  margin-top: 20px;
+}
+
+.like-count {
+  font-size: 14px;
+  font-weight: bold;
+  color: #6b7280;
 }

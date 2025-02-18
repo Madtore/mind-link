@@ -1,9 +1,10 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { timeLog } from 'console';
-import { CreatePost } from '../../common/post/create-post';
+import { CreatePost } from '../../common/Post/creatPost';
 import { BlogService } from '../../services/blog.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LocalStorageService } from '../../services/auth/local-storage.service';
 
 @Component({
   selector: 'app-post-form',
@@ -23,17 +24,17 @@ export class PostFormComponent {
     this.router.navigateByUrl('/blog')
   }
 
-  postSubmit(title: string, contenido: string, category: string) {
+  postSubmit(title: string, contenido: string, category: string, image: File | null) {
 
-    const theId:number = +this.route.snapshot.paramMap.get('id')!;
-    const post: CreatePost = new CreatePost(title, contenido, category, theId);
+    const email: string = LocalStorageService.getUserEmail()
+    const post: CreatePost = new CreatePost(title, contenido, category, email, image);
     this.blogService.createPost(post).subscribe(
       (response) => {
         console.log('Post created successfully', response);
-        this.router.navigateByUrl('/blog'); // Navigate after successful creation
+        this.router.navigateByUrl('/blog');
       },
       (error) => {
-        console.error('Error creating post', error); // Handle errors
+        console.error('Error creating post', error);
       }
     );
   }

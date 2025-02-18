@@ -1,0 +1,87 @@
+.post-card {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .post-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .post-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .post-category {
+    background-color: #FF6B4A;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding: 0.3rem 0.7rem;
+    border-radius: 9999px;
+    align-self: start;
+  }
+  
+  .post-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937;
+  }
+  
+  .post-description {
+    font-size: 1rem;
+    color: #4b5563;
+    line-height: 1.6;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .like-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .like-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .liked {
+    color: #ef4444;
+    transform: scale(1.1);
+  }
+  
+  .unliked {
+    color: #6b7280;
+  }
+  
+  .like-icon:hover {
+    color: #ef4444;
+    transform: scale(1.2);
+  }
+  

@@ -1,0 +1,73 @@
+/* Post Form Section */
+.post-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ffffff, #eeb29b);
+  padding: 3rem;
+}
+
+.post-form {
+  max-width: 700px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-form .form-label {
+  color: #FF6B4A;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.post-form .form-control {
+  border: 2px solid #eeb29b;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  transition: border-color 0.3s ease;
+}
+
+.post-form .form-control:focus {
+  border-color: #FF6B4A;
+  box-shadow: 0 0 0 3px rgba(255, 107, 74, 0.25);
+  outline: none;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.btn-primary {
+  background-color: #FF6B4A;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-danger {
+  background-color: #eeb29b;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-danger:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:active,
+.btn-danger:active {
+  transform: translateY(0);
+}
