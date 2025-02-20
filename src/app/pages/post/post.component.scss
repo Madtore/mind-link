@@ -95,36 +95,30 @@
   justify-content: space-between;
   overflow: hidden; 
 }
-.like-icon {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease, color 0.3s ease;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.like-icon.liked {
-  color: #ef4444;
-  transform: scale(1.1); 
-}
-
-.like-icon.unliked {
-  color: #6b7280; 
-}
-
-.like-icon:hover {
-  color: #ef4444; 
-  transform: scale(1.2); 
-}
 .like-container {
   display: flex;
   align-items: center;
-  gap: 5px; /* Adjust spacing as needed */
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: 10px;
 }
 
-.like-count {
-  font-size: 14px;
-  font-weight: bold;
+.like-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.liked {
+  color: #ef4444;
+  transform: scale(1.1);
+}
+
+.unliked {
   color: #6b7280;
+}
+
+.like-icon:hover {
+  color: #ef4444;
+  transform: scale(1.2);
 }

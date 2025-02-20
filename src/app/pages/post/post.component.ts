@@ -5,6 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { LocalStorageService } from '../../services/auth/local-storage.service';
 import { LikeService } from '../../services/like.service';
 import { Router, RouterLink } from '@angular/router';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-post',
@@ -17,21 +18,11 @@ export class PostComponent implements OnInit {
   @Input({required:true}) post!: GetPostDto;
   liked!: boolean;
   postLikes!: number;
-  constructor(private sanitizer: DomSanitizer, private likeService: LikeService, private router: Router) {}
+  constructor(private likeService: LikeService, private router: Router, private postService: PostService) {}
 
   ngOnInit(): void {
-       this.likeService.getLikesPerPost(this.post.id).subscribe(
-        (response) => {
-          console.log(response);
-          this.postLikes = response;
-        }
-      );
-      this.likeService.isLikedByUser(this.post.id, LocalStorageService.getUserEmail()).subscribe(
-        (response) => {
-          console.log(response);
-          this.liked = !response;
-        }
-      )
+      this.getLikesPerPost(this.post.id);
+      this.isLikedByUser(this.post.id);
   }
   
   likeUnlike(postId:number) {
@@ -47,6 +38,7 @@ export class PostComponent implements OnInit {
       }
     );
   }
+  
    getLikesPerPost(postId: number){
       this.likeService.getLikesPerPost(postId).subscribe(
         (response) => {
@@ -66,25 +58,6 @@ export class PostComponent implements OnInit {
     
   }
   getSafeUrl(base64String: string) {
-    if (!base64String || base64String.trim() === '') return '';
-  
-    const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
-    const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
-  
-    const imageType = this.detectImageType(base64);  
-    return this.sanitizer.bypassSecurityTrustUrl(`data:image/${imageType};base64,${base64}`);
-  }
-  
-  private detectImageType(base64: string): string {
-    const signature = base64.substring(0, 30);
-    if (signature.startsWith('/9j/')) return 'jpeg';
-    if (signature.startsWith('iVBORw')) return 'png';
-    if (signature.startsWith('R0lGOD')) return 'gif';
-    if (signature.startsWith('UklGR')) return 'webp'; 
-    return 'jpeg'; 
-  }
-
-  browsePost(postId: number) {
-    this.router.navigateByUrl(`postsaa`);
+    return this.postService.getSafeUrl(base64String);
   }
 }
