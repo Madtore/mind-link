@@ -1,0 +1,16 @@
+<div class="profile-container">
+    <img [src]="user.photo" alt="Foto de perfil" class="profile-photo" />
+    <h2>{{ user.name }}</h2>
+    <p>{{ user.email }}</p>
+    
+    <div class="appointments">
+      <button (click)="filter = 'futura'">Citas futuras</button>
+      <button (click)="filter = 'pasada'">Citas pasadas</button>
+      
+      <div *ngFor="let appointment of user.appointments">
+        <div *ngIf="appointment.status === filter">
+          <p>{{ appointment.date }} - {{ appointment.psychologist }}</p>
+        </div>
+      </div>
+    </div>
+  </div>

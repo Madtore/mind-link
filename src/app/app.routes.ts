@@ -22,6 +22,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/auth/login/login.component').then(c => c.LoginComponent)
   },
   {
+    path: 'profile',
+    loadComponent: () => import('./pages/profile/profile.component').then(c => c.ProfileComponent)
+  },
+  {
     path: 'register',
     loadComponent: () => import('./pages/auth/register/register.component').then(c => c.RegisterComponent)
   },
