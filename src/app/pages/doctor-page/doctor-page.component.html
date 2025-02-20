@@ -1,0 +1,48 @@
+<div class="page">
+<div class="container">
+    <div class="header">
+       
+        <div>
+            <h1 class="doctor-name" id="doctorName"></h1>
+            <p class="doctor-specialty" id="doctorSpecialty"></p>
+        </div>
+    </div>
+    
+    <section id="perfil" class="section">
+        <h2 class="section-title">Perfil</h2>
+        <p>Los profesionales de la salud dedican su vida a cuidar el bienestar de sus pacientes. Cada médico tiene un enfoque único basado en su especialización, experiencia y filosofía de tratamiento.</p>
+        
+        <div class="doctor-info">
+            <div class="info-item">
+                <span class="info-label">Nombre:</span>
+                <span id="fullName">{{doctor?.firstName}} {{doctor?.lastName}}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Email:</span>
+                <span id="email">{{doctor?.email}}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Género:</span>
+                <span id="gender">{{doctor?.gender}}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Especialización:</span>
+                <span id="specialization">{{doctor?.specialization}}</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Número de licencia:</span>
+                <span id="licenseNumber">{{doctor?.licenseNumber}}</span>
+            </div>
+        </div>
+        
+        <div class="price">
+            Precio por hora: <span id="priceHour">{{doctor?.priceHour}}</span>€
+        </div>
+    </section>
+    
+    <div class="button-container">
+        <button class="cta-button">Ver Post</button>
+        <button class="cta-button">Reservar cita</button>
+    </div>
+</div>
+</div>

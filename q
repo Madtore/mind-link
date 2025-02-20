@@ -1,0 +1,63 @@
+*   [33m7acb147[m[33m ([m[1;36mHEAD -> [m[1;32mfeature/blog-details[m[33m)[m Merge remote-tracking branch 'origin/features/profile' into feature/blog-details
+[31m|[m[32m\[m  
+[31m|[m * [33m07e151a[m[33m ([m[1;31morigin/features/profile[m[33m)[m fix
+[31m|[m * [33m3aa7b0f[m [FIX]
+[31m|[m * [33m242678e[m [add] PROFILE
+[31m|[m * [33m53059ed[m [FEUTURES] profile integration
+* [32m|[m [33mea6dd2b[m Like and Comment Implemented
+* [32m|[m [33m81e7ce1[m[33m ([m[1;31morigin/feature/blog-details[m[33m)[m Finished principal page
+[32m|[m[32m/[m  
+* [33m7b3e82c[m[33m ([m[1;31morigin/feature/authentication[m[33m, [m[1;32mfeature/authentication[m[33m)[m [FEATURES] add page doctors and finished login, add icons en headers
+* [33m4383832[m Authentication Finished
+[32m|[m * [33md18162b[m[33m ([m[1;31morigin/rama_dani_front[m[33m)[m footer cambiado y calendario actualizado
+[32m|[m * [33mef6fd71[m[33m ([m[1;32mrama_dani_front[m[33m)[m pagina perfil actualizada, calendario dinamico agregado
+[32m|[m * [33mc0247ba[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m boton de perfil creado, y pagina de perfil creada
+[32m|[m[32m/[m  
+* [33m7fbf439[m espacio entre footer y pagina solucionado + boton azul actualizado + espacio entre forms
+* [33mcaca635[m Refactoring Project
+* [33m56fdff2[m formulario registro actualizado con las opciones extras al selecionar medico
+*   [33m7c64102[m Merge pull request #4 from Madtore/development/fixed
+[34m|[m[35m\[m  
+[34m|[m [35m|[m * [33m2a4277a[m[33m ([m[1;31morigin/development/fixed[m[33m)[m Postç
+[34m|[m [35m|[m[35m/[m  
+[34m|[m * [33m8d93c48[m New branch developer
+[34m|[m[34m/[m  
+* [33m754218c[m Fixed Package.json Versions
+*   [33mc81025f[m Merge branch 'master' of https://github.com/Madtore/mind-link
+[1;31m|[m[1;32m\[m  
+[1;31m|[m * [33md611d2a[m [merge] fix conflict
+* [1;32m|[m [33m521579a[m [merge] fix conflict
+* [1;32m|[m [33m164599f[m[33m ([m[1;31morigin/rama_dani[m[33m)[m cambios pagina principal
+[1;32m|[m[1;32m/[m  
+[1;32m|[m * [33m9d501af[m[33m ([m[1;31morigin/feature/blog-v2[m[33m)[m Mejorada Blog
+[1;32m|[m[1;32m/[m  
+[1;32m|[m * [33mb95c738[m[33m ([m[1;31morigin/development/doctors[m[33m)[m [Features] add botton for goback and for start questionary
+[1;32m|[m * [33m743912b[m [Featurs] add psycologist-list and psycologist-details
+[1;32m|[m[1;32m/[m  
+*   [33m48fe9a4[m Merge pull request #3 from Madtore/feature/create-post
+[1;35m|[m[1;36m\[m  
+[1;35m|[m * [33m8e5b9c8[m[33m ([m[1;31morigin/feature/create-post[m[33m)[m Load Posts/Blog
+* [1;36m|[m   [33m0039970[m Merge branch 'development/home'
+[31m|[m[32m\[m [1;36m\[m  
+[31m|[m * [1;36m|[m [33m6ac76d9[m[33m ([m[1;31morigin/development/home[m[33m)[m [FIX] changed style login and register... add iframe landscape
+[31m|[m * [1;36m|[m [33mabce1f8[m [Fix] add style en de home componetes
+* [32m|[m [1;36m|[m   [33m8074b31[m Merge pull request #2 from Madtore/feature/create-post
+[32m|[m[1;36m\[m [32m\[m [1;36m\[m  
+[32m|[m [1;36m|[m[32m/[m [1;36m/[m  
+[32m|[m[32m/[m[1;36m|[m [1;36m/[m   
+[32m|[m [1;36m|[m[1;36m/[m    
+[32m|[m * [33m6a29dbc[m Create Post + Cors Config
+[32m|[m[32m/[m  
+* [33m76556e2[m [Merge] branch 'master' of development/footer
+*   [33m626cb32[m Merge branch 'development/footer'
+[35m|[m[36m\[m  
+[35m|[m * [33m304f38d[m[33m ([m[1;31morigin/development/footer[m[33m)[m [Fix] change color of footer and header
+[35m|[m * [33mae42eff[m [ADD] add footer component
+* [36m|[m   [33m7303d05[m Merge pull request #1 from Madtore/feature/blog-page
+[36m|[m[1;32m\[m [36m\[m  
+[36m|[m [1;32m|[m[36m/[m  
+[36m|[m[36m/[m[1;32m|[m   
+[36m|[m * [33m3867ce7[m[33m ([m[1;31morigin/feature/blog-page[m[33m)[m Blog Update
+[36m|[m[36m/[m  
+* [33m8af701a[m [Master] fisrt commit
+* [33maeb2eb5[m initial commit

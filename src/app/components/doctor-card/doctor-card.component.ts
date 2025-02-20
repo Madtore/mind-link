@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { Doctor } from '../../models/doctor.model';
+import { Component, Input, Output } from '@angular/core';
+import { DoctorResponse } from '../../models/doctor.model';
 import { CommonModule } from '@angular/common';
+import { EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-card',
@@ -10,9 +12,16 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class DoctorCardComponent {
-  @Input() doctor: Doctor = { id: 1, name: 'John', specialty: 'Cardiology' };
+  @Input() doctor: DoctorResponse = { firstName: '', lastName: '', email: '', dateOfBirth: '', gender: '', specialization: '', licenseNumber: '', priceHour: 0 };
 
-  call() {
-    // Implementation for call action
+  @Output() doctorSelected = new EventEmitter<DoctorResponse>();
+  
+  constructor(private router: Router) {}
+  selectDoctor() {
+    this.doctorSelected.emit(this.doctor);
+
+    this.router.navigate(['/doctors/details'], {
+      state: { doctor: this.doctor }
+    });
   }
 }

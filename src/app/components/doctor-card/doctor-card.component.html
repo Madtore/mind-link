@@ -1,9 +1,20 @@
-<div *ngIf="doctor" class="doctor-card">
-   
-    <div class="doctor-info">
-      <h3>{{doctor.name}}</h3>
-      <p>{{doctor.specialty}}</p>
-      <p>Precio: ${{doctor.price}}</p>
-      <button (click)="call()">Llamar</button>
-    </div>
+  <div *ngIf="doctor" class="card-container" (click)="selectDoctor()">
+
+      <div class="profile-section">
+        <div class="profile-image">
+          
+        </div>
+        <div class="profile-info">
+          <h2>{{doctor.firstName}} {{doctor.lastName}}</h2>
+          <p class="description">Contacto: {{doctor.email}}</p>
+          <p class="subtitle">numero de licencia: {{doctor.licenseNumber}}</p>
+          <p class="description">Precio por hora: {{doctor.priceHour}}€</p>
+        </div>
+      </div>
+      
+      <div class="specialties-section">
+        <span class="specialty-pill"> {{doctor.specialization}}</span>
+      </div>
   </div>
+  
+

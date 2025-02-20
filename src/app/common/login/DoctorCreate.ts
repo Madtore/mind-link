@@ -8,6 +8,7 @@ export class DoctorCreate {
         public dateOfBirth: Date,
         public gender: Gender,
         public specialization: string,
-        public licenseNumber: string
+        public licenseNumber: string,
+        public priceHour: number
     ){}
 }

@@ -1,0 +1,110 @@
+.post-card {
+  max-width: 700px;
+  margin: 2rem auto;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: #ffd9cb; 
+  backdrop-filter: blur(10px);
+  padding: 1rem; 
+
+  .post-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  
+  
+  .post-content {
+    padding: 1.5rem;
+
+    .post-category {
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #3b82f6;
+      text-transform: uppercase;
+    }
+
+    .post-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #1f2937;
+      text-align: center;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: normal;
+      margin-bottom: 1rem;
+    }
+
+    .post-description {
+      margin-bottom: 1.5rem;
+      color: #4b5563;
+      line-height: 1.6;
+      text-align: justify;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: normal;
+    }
+
+    .action-container {
+      border-top: 1px solid rgba(255, 255, 255, 0.3); // Línea más sutil con transparencia
+      padding-top: 1rem;
+
+      .interaction-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .like-container, .comment-container {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          margin-top: 0.625rem;
+          cursor: pointer;
+
+          .like-icon, .comment-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+          }
+
+          .like-icon {
+            &.liked {
+              color: #ef4444;
+              transform: scale(1.1);
+            }
+            &.unliked {
+              color: #6b7280;
+            }
+            &:hover {
+              color: #ef4444;
+              transform: scale(1.2);
+            }
+          }
+
+          .comment-container:hover {
+            color: #3b82f6;
+          }
+        }
+      }
+    }
+  }
+}
+.comments-section {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1f2937;
+    text-align: center;
+  }
+}

@@ -1,0 +1,8 @@
+<!-- comment.component.html -->
+<div class="comment-card">
+    <div class="comment-header">
+      <span class="comment-author">{{ comment.userName }}</span>
+      <span class="comment-date">{{ comment.fechaCreacion | date:'mediumDate' }}</span>
+    </div>
+    <p class="comment-content">{{ comment.content }}</p>
+  </div>

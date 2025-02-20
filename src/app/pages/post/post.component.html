@@ -1,17 +1,32 @@
-<div class="card mb-4" style="max-width: 20rem;">
-    <!-- Optional Image 
-    <img *ngIf="post.image" [src]="post.image" class="card-img-top" alt="Post Image" />
-    -->
-    <!-- Card Body -->
-    <div class="card-body">
-      <!-- Post Title -->
-      <h5 class="card-title text-orange">{{ post.title }}</h5>
-  
-      <!-- Post Content -->
-      <p class="card-text">{{ post.content }}</p>
-  
-      <!-- Post Category -->
-      <p class="card-text small text-muted text-orange">{{ post.categoria }}</p>
+<article
+  class="post-card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+  <img *ngIf="post.imageBase64" [src]="getSafeUrl(post.imageBase64)" alt="Post Image" class="post-image" />
+  <div class="post-content p-4">
+    <span class="post-category bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
+      {{ post.categoria }}
+    </span>
+    <h3 class="post-title mt-2 text-lg font-semibold">
+      <a href="javascript:void(0)"
+        class="post-link text-gray-800 hover:text-orange-500 transition  post-description line-clamp-2"
+        [routerLink]="['/post', post.id]">
+        {{ post.title }}
+      </a>
+    </h3>
+    <p class="post-description mt-2 text-sm text-gray-600 line-clamp-2">
+      {{ post.content }}
+    </p>
+    <div class="like-container">
+      <svg 
+          class="like-icon" 
+          [ngClass]="{'liked': !liked, 'unliked': liked}"
+          (click)="likeUnlike(post.id)"
+          xmlns="http://www.w3.org/2000/svg" 
+          fill="currentColor" 
+          viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      <span class="like-count">{{postLikes}}</span>
     </div>
-  
-</div>
+  </div>
+
+</article>
